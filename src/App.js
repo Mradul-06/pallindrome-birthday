@@ -1,25 +1,51 @@
-import logo from './logo.svg';
-import './App.css';
+import React,{useState} from 'react'
+import './app.css'
+const App = () => {
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const [date, setDate] = useState()
+
+const reverseString = (str) => {
+    const x=(str.split(''))
+    const y =x.reverse()
+    console.log(y)
+    return y.join('');
 }
 
-export default App;
+const isPallindrome = (ddmmyyyy) => {
+    const original = ddmmyyyy
+    const revString = reverseString(original)
+    console.log(revString);
+    if (original === revString) {
+        console.log('pallindrome')
+    }else{
+        console.log('not pallindrome')
+    }
+}
+
+const dateTo = (str) =>{
+    const x=str.split('-')
+    console.log(x)
+    var date ={
+        day:x[2],
+        month:x[1],
+        year:x[0],
+    }
+    var ddmmyyyy = date.day+date.month+date.year;
+    isPallindrome(ddmmyyyy)
+    
+}
+
+  return (
+    <div className='container'>
+        <div className='text-container'>
+        <h1>Palindrome Birthday!</h1>
+        <h3>Enter your birthday date:</h3>
+        <form>
+            <input type="date" value={date} placeholder="dd-mm-yyyy" onChange={(e)=>dateTo(e.target.value)}></input>
+        </form>
+        </div>
+    </div>
+  )
+}
+
+export default App
