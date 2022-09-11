@@ -1,7 +1,21 @@
 body{
-    background-color:rgb(245, 148, 62);
+    background-image: url(./bg/download.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.text-container{
+    text-align:center;
+}
+.header{
+    font-size:larger;
 }
 
 input{
-    border-radius: 1rem;
+
+    font-size:large;
+}
+.info{
+    font-size: large;
+    margin: 10px;
 }
